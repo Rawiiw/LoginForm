@@ -1,0 +1,44 @@
+﻿<Window x:Class="UsersApp.CapchaPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UsersApp"
+      mc:Ignorable="d"
+      Title="CapchaPage" Height="212" Width="327">
+
+    <Grid Margin="0,10,0,-16">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="27*"/>
+            <ColumnDefinition Width="290*"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="156*"/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" Grid.ColumnSpan="2" Margin="0,-7,0,27" Grid.RowSpan="2" Grid.Column="1">
+            <Grid>
+                <Button x:Name="Exit" Content="Exit" Style="{StaticResource MaterialDesignFlatButton}" Height="32" Margin="241,0,10,0" Click="Exit_Click">
+                    <Button.Effect>
+                        <BlurEffect Radius="2"/>
+                    </Button.Effect>
+                </Button>
+            </Grid>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="92" Width="277">
+                <TextBlock Text="Enter captcha: " Height="68" Width="77" FontWeight="Bold"/>
+                <TextBox x:Name="CaptchaInput" Width="104" Margin="5,0,5,0" Height="32" />
+                <Image x:Name="CaptchaImage"  Width="83"  Height="75"  />
+            </StackPanel>
+            <Grid Height="31" Width="303">
+                <Button x:Name="Enterbtn"  Content="Enter" Click="Login_Click" Height="25" Width="96" />
+                <Button x:Name="yes" Content="Change" Margin="3,-123,184,125" Click="Yes_Click"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+
+</Window>

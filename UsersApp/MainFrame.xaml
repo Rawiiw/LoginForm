@@ -1,0 +1,56 @@
+﻿<Window x:Class="UsersApp.MainFrame"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UsersApp"
+        mc:Ignorable="d"
+        Title="MainFrame" Height="450" Width="800" ResizeMode="NoResize" Background="Transparent" AllowsTransparency="true" WindowStyle="None">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="20" />
+            <RowDefinition Height="Auto" MinHeight="52" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Border Width="auto" Height="auto"  BorderThickness="2"
+                CornerRadius="20,20,20,20" Margin="0,10,0,0" Grid.RowSpan="3" >
+            <Border.Background>
+
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF0E3F7A" Offset="0"/>
+                    <GradientStop Color="#FF7825A8" Offset="1"/>
+                    <GradientStop Color="#FF346CAF" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="10,10,10,10">
+            <Button Content="Авторизация" Click="Login_Click" />
+            <Button Content="Подробнее" Click="ViewDetails_Click" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10,10,10,10">
+            <TextBlock Text="Направление:" Margin="0,0,10,0" VerticalAlignment="Center" />
+            <ComboBox x:Name="DirectionFilter" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedValue="{Binding SelectedDirection}" Margin="0,0,10,0" SelectionChanged="DirectionFilter_SelectionChanged" />
+            <TextBlock Text="Дата:" Margin="0,0,10,0" VerticalAlignment="Center" />
+            <DatePicker x:Name="DateFilter" Margin="0,0,10,0">
+                <DatePicker.SelectedDate>
+                    <Binding Path="SelectedDate" />
+                </DatePicker.SelectedDate>
+            </DatePicker>
+            <Button Content="Применить" Click="ApplyFilters_Click" Height="32" VerticalAlignment="Top" />
+        </StackPanel>
+        <Button Content="Exit" HorizontalAlignment="Right" Click="Button_Click_Exit" Style="{StaticResource MaterialDesignFlatButton}" Margin="0,18,29,0">
+            <Button.Effect>
+                <BlurEffect Radius="2"/>
+            </Button.Effect>
+        </Button>
+        <DataGrid x:Name="EventsGrid" Grid.Row="2" SelectionChanged="EventsGrid_SelectionChanged" Margin="10,0,10,196">
+        </DataGrid>
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="10">
+            <Button Content="Авторизация" Click="Login_Click" />
+            <Button Content="Регистрация" Click="ViewDetails_Click" />
+        </StackPanel>
+    </Grid>
+</Window>
